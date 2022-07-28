@@ -1,0 +1,12 @@
+logging:
+  level:
+    org:
+      springframework:
+        jdbc:
+          datasource:
+            init:
+              ScriptUtils: debug
+spring:
+  jpa:
+    hibernate:
+      ddl-auto: none
