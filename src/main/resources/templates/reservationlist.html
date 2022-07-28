@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Reservation List</title>
+</head>
+<body>
+<p th:text="'startDay: ' + ${reservation.startDay}" />
+<p th:text="'endDay: ' + ${reservation.endDay}" />
+<a href="/reservation">Submit another reservation</a>
+</body>
+</html>

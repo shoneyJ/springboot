@@ -9,12 +9,12 @@
 <body>
 
     <h1>Room Reservation</h1>
-    <form method="post" action="reservation">
+    <form action="#" method="post" th:action="@{/reservation}" th:object="${reservation}" >
         <label>Start day</label>
-        <input type="number">
+        <input type="number" th:field="*{startDay}">
         <label>End day</label>
-        <input type="number">
-        <button>book</button>
+        <input type="number" th:field="*{endDay}">
+        <input type="submit" value="Submit" />
     </form>
 
 </body>
