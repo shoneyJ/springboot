@@ -14,18 +14,15 @@ public class HotelService {
 
 
     private final HotelRepository hotelRepository;
-    private final ReservationRepository reservationRepository;
 
-    public HotelService(HotelRepository hotelRepository, ReservationRepository reservationRepository) {
+    public HotelService(HotelRepository hotelRepository) {
         this.hotelRepository = hotelRepository;
-        this.reservationRepository = reservationRepository;
     }
 
     public String add(Hotel hotel) throws Exception{
-
-       hotel.setHotelId(1);
-       this.hotelRepository.save(hotel);
-
+       Hotel entity= this.hotelRepository.findById(1).get();
+        entity.setHotelSize(hotel.getHotelSize());
+       this.hotelRepository.save(entity);
        return "ok";
 
     }

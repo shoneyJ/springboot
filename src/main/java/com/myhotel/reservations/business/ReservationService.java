@@ -28,7 +28,8 @@ public class ReservationService {
             if(isOutsidePlanningPeriod)
                 throw new Exception("Value out of Range");
 
-        get();
+        List<Reservation> reservations= get();
+
 
         reservation.setRoomNumber(1);
             this.reservationRepository.save(reservation);

@@ -20,17 +20,17 @@ public class HotelController {
     }
 
     @GetMapping("/hotel")
-    public String reservationForm(Model model) {
+    public String hotelForm(Model model) {
         model.addAttribute("hotel", new Hotel());
         return "hotel";
     }
 
     @PostMapping("/hotel")
-    public String reservationSubmit(@ModelAttribute Hotel hotel, Model model) throws Exception {
+    public String hotelSubmit(@ModelAttribute Hotel hotel, Model model) throws Exception {
         model.addAttribute("hotel", hotel);
         System.out.println(this.hotelService.add(hotel));
 
-        return "reservationlist";
+        return "hotel";
     }
 
 }
