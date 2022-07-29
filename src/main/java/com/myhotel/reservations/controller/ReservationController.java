@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 @Controller
 public class ReservationController {
 
-    private  final ReservationService reservationService;
+    private final ReservationService reservationService;
 
     public ReservationController(ReservationService reservationService) {
         this.reservationService = reservationService;
@@ -26,7 +26,7 @@ public class ReservationController {
     @PostMapping("/reservation")
     public String reservationSubmit(@ModelAttribute Reservation reservation, Model model) throws Exception {
         model.addAttribute("reservation", reservation);
-         this.reservationService.add(reservation);
+        this.reservationService.add(reservation);
 
         return "reservationlist";
     }
