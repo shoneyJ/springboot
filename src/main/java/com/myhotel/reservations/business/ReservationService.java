@@ -18,10 +18,13 @@ public class ReservationService {
         this.reservationRepository = reservationRepository;
     }
 
-    public String add(Reservation reservation){
+    public String add(Reservation reservation) throws Exception{
 
             reservation.setRoomNumber(1);
             boolean isOutsidePlanningPeriod = isOutsidePlanningPeriod(reservation);
+            if(isOutsidePlanningPeriod)
+                throw new Exception("Value out of Range");
+
             this.reservationRepository.save(reservation);
           return this.hotelRepository.findById(1).get().getHotelName();
     }

@@ -24,7 +24,7 @@ public class ReservationController {
     }
 
     @PostMapping("/reservation")
-    public String reservationSubmit(@ModelAttribute Reservation reservation, Model model) {
+    public String reservationSubmit(@ModelAttribute Reservation reservation, Model model) throws Exception {
         model.addAttribute("reservation", reservation);
          System.out.println(this.reservationService.add(reservation));
 

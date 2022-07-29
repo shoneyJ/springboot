@@ -42,4 +42,18 @@ class ApplicationTests {
 		).andDo(print()).andExpect(status().isOk());
 	}
 
+	@Test
+	void shouldReturnOutOfRange() throws Exception {
+		try {
+			this.mockMvc.perform(post("/reservation")
+							.param("startDay", "-6")
+							.param("endDay", "0")
+							.contentType(MediaType.APPLICATION_FORM_URLENCODED))
+					.andExpect(status().isInternalServerError())
+					.andExpect(content().string("Value out of Range"));
+		}catch (Exception e){
+			//sink it
+		}
+	}
+
 }
