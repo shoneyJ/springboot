@@ -28,7 +28,7 @@ public class HotelController {
     @PostMapping("/hotel")
     public String hotelSubmit(@ModelAttribute Hotel hotel, Model model) throws Exception {
         model.addAttribute("hotel", hotel);
-        System.out.println(this.hotelService.add(hotel));
+        System.out.println(this.hotelService.set(hotel));
 
         return "hotel";
     }
