@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+
+<head>
+  <title>Reservations</title>
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+
+<h1>Hotel Size</h1>
+<form action="#" method="post" th:action="@{/hotel}" th:object="${hotel}" >
+  <label>Size</label>
+  <input type="number" th:field="*{hotelSize}">
+  <input type="submit" value="Submit" />
+</form>
+
+</body>
+
+</html>
