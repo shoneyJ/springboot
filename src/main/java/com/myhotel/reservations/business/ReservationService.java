@@ -19,9 +19,22 @@ public class ReservationService {
     }
 
     public String add(Reservation reservation){
-        reservation.setRoomNumber(1);
+
+            reservation.setRoomNumber(1);
+            boolean isOutsidePlanningPeriod = isOutsidePlanningPeriod(reservation);
             this.reservationRepository.save(reservation);
           return this.hotelRepository.findById(1).get().getHotelName();
+    }
+
+    private boolean isOutsidePlanningPeriod (Reservation reservation)
+    {
+        if (reservation.getEndDay()<0 || reservation.getEndDay()>365)
+            return true;
+        else if (reservation.getStartDay()<0 || reservation.getStartDay()>365)
+            return true;
+        else
+            return false;
+
     }
 
 
