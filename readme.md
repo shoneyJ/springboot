@@ -9,7 +9,7 @@ Run commands
 ```maven
  mvn spring-boot:run
 ```
-Visit below links
+Visit below links:
 
 [reservation](http://localhost:8080/reservation)
 
