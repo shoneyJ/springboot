@@ -3,6 +3,8 @@ package com.myhotel.reservations.business;
 import com.myhotel.reservations.data.HotelRepository;
 import com.myhotel.reservations.data.Reservation;
 import com.myhotel.reservations.data.ReservationRepository;
+import com.myhotel.reservations.util.NoRoomAvailableException;
+import com.myhotel.reservations.util.OutOfRangeException;
 import org.springframework.stereotype.Service;
 
 import java.util.*;
@@ -22,11 +24,11 @@ public class ReservationService {
     public void add(Reservation reservation) throws Exception {
         boolean isOutsidePlanningPeriod = isOutsidePlanningPeriod(reservation);
         if (isOutsidePlanningPeriod)
-            throw new Exception("Value out of Range");
+            throw new OutOfRangeException("Value out of Range");
 
         int roomNumber = getAvailableRoomNumber(reservation);
         if (roomNumber == 0)
-            throw new Exception("No rooms available");
+            throw new NoRoomAvailableException("No rooms available");
         else {
             reservation.setRoomNumber(roomNumber);
             this.reservationRepository.save(reservation);
