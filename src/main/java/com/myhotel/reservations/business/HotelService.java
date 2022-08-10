@@ -13,7 +13,7 @@ public class HotelService {
         this.hotelRepository = hotelRepository;
     }
 
-    public String set(Hotel hotel) throws Exception {
+    public String set(Hotel hotel){
         Hotel entity = this.hotelRepository.findById(1).get();
         entity.setHotelSize(hotel.getHotelSize());
         this.hotelRepository.save(entity);

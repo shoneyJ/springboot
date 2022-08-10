@@ -22,8 +22,8 @@ public class ReservationService {
     }
 
     public void add(Reservation reservation) throws Exception {
-        boolean isOutsidePlanningPeriod = isOutsidePlanningPeriod(reservation);
-        if (isOutsidePlanningPeriod)
+
+        if (isOutsidePlanningPeriod(reservation))
             throw new OutOfRangeException("Value out of Range");
 
         int roomNumber = getAvailableRoomNumber(reservation);
